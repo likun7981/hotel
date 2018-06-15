@@ -5,7 +5,7 @@ function href(id: string) {
   const { protocol, hostname } = window.location
   if (/hotel\./.test(hostname)) {
     // Accessed using hotel.tld
-    const tld = hostname.split('.').slice(-1)[0]
+    const tld = hostname.replace('hotel.', '')
     return `${protocol}//${id}.${tld}`
   } else {
     // Accessed using localhost
