@@ -32,7 +32,7 @@ exitHook(() => {
 // HTTPS proxy
 const proxy = httpProxy.createServer({
   target: {
-    host: '127.0.0.1',
+    // host: '127.0.0.1',
     port: conf.port
   },
   ssl: pem.generate(),
@@ -43,6 +43,6 @@ const proxy = httpProxy.createServer({
 // Start HTTPS proxy and HTTP server
 proxy.listen(conf.port + 1)
 
-app.listen(conf.port, conf.host, function() {
+app.listen(conf.port, function() {
   log(`Server listening on port ${conf.host}:${conf.port}`)
 })

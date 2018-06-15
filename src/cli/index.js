@@ -1,5 +1,7 @@
 const yargs = require('yargs')
 const servers = require('./servers')
+const openConf = require('./openConf')
+const networksetup = require('./networksetup')
 const run = require('./run')
 const daemon = require('./daemon')
 const pkg = require('../../package.json')
@@ -84,6 +86,12 @@ module.exports = processArgv =>
     .command('ls', 'List servers', {}, argv => servers.ls(argv))
     .command('start', 'Start daemon', {}, () => daemon.start())
     .command('stop', 'Stop daemon', {}, () => daemon.stop())
+    .command('domain [LAN_IP]', 'config domain', {}, argv =>
+      networksetup(argv['LAN_IP'])
+    )
+    .command('config', 'open config file', {}, () => {
+      openConf()
+    })
     .example('$0 add --help')
     .example('$0 add nodemon')
     .example('$0 add npm start')

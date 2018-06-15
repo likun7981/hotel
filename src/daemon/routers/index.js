@@ -1,6 +1,7 @@
 const express = require('express')
 const conf = require('../../conf')
 const log = require('../log')
+const internalIp = require('internal-ip')
 
 module.exports = function(group) {
   const router = express.Router()
@@ -10,7 +11,14 @@ module.exports = function(group) {
     if (conf.proxy) {
       res.render('proxy-pac-with-proxy', { conf })
     } else {
-      res.render('proxy-pac', { conf })
+      internalIp
+        .v4()
+        .then(ip => {
+          res.render('proxy-pac', { conf, host: ip })
+        })
+        .catch(() => {
+          res.render('proxy-pac', { conf, host: 'localhost' })
+        })
     }
   }
 
