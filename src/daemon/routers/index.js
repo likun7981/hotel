@@ -14,10 +14,11 @@ module.exports = function(group) {
       internalIp
         .v4()
         .then(ip => {
-          res.render('proxy-pac', { conf, host: ip })
+          conf.host = ip
+          res.render('proxy-pac', { conf })
         })
         .catch(() => {
-          res.render('proxy-pac', { conf, host: 'localhost' })
+          res.render('proxy-pac', { conf })
         })
     }
   }
