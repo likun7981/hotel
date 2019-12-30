@@ -1,9 +1,11 @@
 {
   "name": "hotel2",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Local domains for everyone and more! ",
   "main": "lib",
-  "bin": "lib/cli/bin.js",
+  "bin": {
+    "hotel": "lib/cli/bin.js"
+  },
   "engines": {
     "node": ">=6"
   },
