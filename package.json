@@ -16,7 +16,6 @@
     "start": "run-p start:*",
     "start:webpack": "webpack-dev-server --config webpack.dev.js --open",
     "start:nodemon": "nodemon -- src/daemon",
-    "prepublishOnly": "npm run build && pkg-ok",
     "uninstall": "node bin/uninstall.js",
     "build": "run-s build:*",
     "build:webpack": "rimraf dist && webpack --config webpack.prod.js",
