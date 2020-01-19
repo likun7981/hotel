@@ -1,6 +1,6 @@
 {
   "name": "hotel2",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Local domains for everyone and more! ",
   "main": "lib",
   "bin": {
