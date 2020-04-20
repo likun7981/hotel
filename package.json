@@ -1,6 +1,6 @@
 {
   "name": "hotel2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local domains for everyone and more! ",
   "main": "lib",
   "bin": {
@@ -20,7 +20,8 @@
     "build": "run-s build:*",
     "build:webpack": "rimraf dist && webpack --config webpack.prod.js",
     "build:babel": "rimraf lib && babel src -d lib --copy-files --ignore src/app",
-    "addFixtures": "node src/cli/bin add \"node index\" --dir ./test/fixtures/app && node src/cli/bin add \"node index\" --dir ./test/fixtures/verbose && node src/cli/bin add http://some-domain.com --name local-domain "
+    "addFixtures": "node src/cli/bin add \"node index\" --dir ./test/fixtures/app && node src/cli/bin add \"node index\" --dir ./test/fixtures/verbose && node src/cli/bin add http://some-domain.com --name local-domain ",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
