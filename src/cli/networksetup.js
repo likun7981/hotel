@@ -45,15 +45,16 @@ module.exports = function(host) {
     if (!host) {
       macSetup('localhost')
     } else if (host === 'ip') {
-      return internalIp
+      internalIp
         .v4()
         .then(macSetup)
         .catch(() => {
           console.log('Setup Local IP fail, use `localhost`')
           macSetup('localhost')
         })
+    } else {
+      macSetup(host)
     }
-    macSetup(host)
   } else {
     console.log('Not support now! please set up proxy configuration manually')
     if (isWin) {
