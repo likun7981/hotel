@@ -43,10 +43,13 @@ function macSetup(host) {
 module.exports = function(host) {
   if (isMac) {
     if (!host) {
+      macSetup('localhost')
+    } else if (host === 'ip') {
       return internalIp
         .v4()
         .then(macSetup)
         .catch(() => {
+          console.log('Setup Local IP fail, use `localhost`')
           macSetup('localhost')
         })
     }
